@@ -19,5 +19,8 @@
   "homepage": "https://github.com/chemacenturion/Team-Generator#readme",
   "dependencies": {
     "inquirer": "^8.1.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
