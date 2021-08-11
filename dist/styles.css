@@ -10,3 +10,22 @@
     color: white;
     background: rgb(87, 87, 87);
 }
+
+.card-body {
+    text-align: center;
+    color: white;
+    background: rgb(224, 224, 224); 
+}
+
+.card-title{
+    text-shadow: black 2px 2px;
+}
+
+.card-text {
+    color: rgb(87, 87, 87);
+}
+
+.contents {
+    text-align: left;
+    color: black;
+}
