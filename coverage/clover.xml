@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628733306591" clover="3.2.0">
-  <project timestamp="1628733306591" name="All files">
+<coverage generated="1628779306323" clover="3.2.0">
+  <project timestamp="1628779306324" name="All files">
     <metrics statements="25" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="13" elements="38" coveredelements="38" complexity="0" loc="25" ncloc="25" packages="1" files="4" classes="4"/>
     <file name="Employee.js" path="C:\Users\Jose Maria\homework\Team-Generator\lib\Employee.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <line num="25" count="15" type="stmt"/>
-      <line num="26" count="15" type="stmt"/>
-      <line num="27" count="15" type="stmt"/>
+      <line num="25" count="14" type="stmt"/>
+      <line num="26" count="14" type="stmt"/>
+      <line num="27" count="14" type="stmt"/>
       <line num="31" count="1" type="stmt"/>
       <line num="34" count="1" type="stmt"/>
       <line num="37" count="1" type="stmt"/>

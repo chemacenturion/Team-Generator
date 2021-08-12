@@ -2,11 +2,6 @@
 const { TestWatcher } = require("jest");
 const Employee = require("../lib/Employee");
 
-test("Will generate employee via prompt", () => {
-    const e = new Employee();
-    expect(typeof(e)).toBe("object");
-});
-
 test("Can set name with a constructor function", () => {
     const name = "Jose";
     const e = new Employee(name);
