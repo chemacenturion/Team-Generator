@@ -34,6 +34,7 @@ inquirer
             // console.log(managerArray)
             // console.log(engineerArray)
             // console.log(internArray)
+            finishedProject(managerArray, engineerArray, internArray);
         }
     })
 // ask tutor how to write multiple prompts with then statements in code
@@ -147,8 +148,12 @@ inquirer
        
     //      fs.writeFile(team.html, htmlString, (err)=>{console.error(err)})
     //    }
-    function generateHtml() {
-        let boilerplatecode = `
+    function generateHtml(managerArray, engineerArray, internArray) {
+        let managerCard = ``;
+        let engineerCard = ``;
+        let internCard = ``;
+
+        let boilerPlateCode = `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -239,7 +244,12 @@ inquirer
         <script src="../index.js"></script>
         </html>
         `
-    
-        fs.writeFile(team.html, htmlString, (err)=>{console.error(err)})
+        return boilerPlateCode + managerCard + engineerCard + internCard + closingTags
     }
+
+    function finishedProject() {
+        let data = generateHtml()
+        fs.writeFileSync(`team.html`, data, "utf-8", (err)=>{console.error(err)})
+    }
+
 init()
