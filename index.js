@@ -31,9 +31,9 @@ inquirer
         }else if(response.addEmployee === "Intern"){
             addIntern()
         }else{
-            console.log(managerArray)
-            console.log(engineerArray)
-            console.log(internArray)
+            // console.log(managerArray)
+            // console.log(engineerArray)
+            // console.log(internArray)
         }
     })
 // ask tutor how to write multiple prompts with then statements in code
@@ -137,8 +137,19 @@ inquirer
             })
     }
 
+    // Sample text from BCs Support
+    // function example2(){
+    //      var htmlString = `boilerplatecode`
+       
+    //      for(/*for loop stuff here*/){
+    //        htmlString+="card html code"
+    //      }
+       
+    //      fs.writeFile(team.html, htmlString, (err)=>{console.error(err)})
+    //    }
     function generateHtml() {
-        `<!DOCTYPE html>
+        let boilerplatecode = `
+        <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -157,65 +168,78 @@ inquirer
             <!-- need to media queries align center for responsiveness between desktop and mobile -->
             <div class="container">
               <div class="row">
-                  <!-- Adding bootstrap card templates in -->
-                  <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
-                      <img src="../dist/images/manager.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h1 class="card-title">Manager</h1>
-                        <h4 class="card-text">${manager.name}</h4>
-                      </div>
-                      <div class="card-body contents">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${manager.id}</li>
-                          <li class="list-group-item">Email: ${manager.email}</a></li>
-                          <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
-                      <img src="../dist/images/engineer.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h1 class="card-title">Engineer</h1>
-                        <h4 class="card-text">${engineer.name}</h4>
-                      </div>
-                      <div class="card-body contents">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${engineer.id}</li>
-                          <li class="list-group-item">Email: ${engineer.email}</li>
-                          <li class="list-group-item">GitHub: ${engineer.github}</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm">
-                    <div class="card" style="width: 18rem;">
-                      <img src="../dist/images/intern.jpg" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h1 class="card-title">Intern</h1>
-                        <h4 class="card-text">${intern.name}</h4>
-                      </div>
-                      <div class="card-body contents">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">ID: ${intern.id}3</li>
-                          <li class="list-group-item">Email: ${intern.email}</li>
-                          <li class="list-group-item">School: ${intern.school}</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+        `
+        for (let i = 1; i < managerArray.length; i++) {
+            managerCard += `
+            <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="../dist/images/manager.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h1 class="card-title">Manager</h1>
+                <h4 class="card-text">${manager.name}</h4>
               </div>
+              <div class="card-body contents">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">ID: ${manager.id}</li>
+                  <li class="list-group-item">Email: ${manager.email}</a></li>
+                  <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `
+        }
+
+        for (let i = 1; i < engineerArray.length; i++) {
+            engineerCard += `
+            <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="../dist/images/engineer.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h1 class="card-title">Engineer</h1>
+                <h4 class="card-text">${engineer.name}</h4>
+              </div>
+              <div class="card-body contents">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">ID: ${engineer.id}</li>
+                  <li class="list-group-item">Email: ${engineer.email}</li>
+                  <li class="list-group-item">GitHub: ${engineer.github}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `
+        }
+
+        for (let i = 1; i < internArray.length; i++) {
+            internCard += `
+            <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <img src="../dist/images/intern.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h1 class="card-title">Intern</h1>
+                <h4 class="card-text">${intern.name}</h4>
+              </div>
+              <div class="card-body contents">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">ID: ${intern.id}</li>
+                  <li class="list-group-item">Email: ${intern.email}</li>
+                  <li class="list-group-item">School: ${intern.school}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `
+        }
+
+        let closingTags = `
+                </div>
             </div>
         </body>
         <script src="../index.js"></script>
-        </html>`
-
-        // fs.writeFile('team.html', htmlArr.join(""), function (err) {
-        //     console.error(err);
-        // })
+        </html>
+        `
+    
+        fs.writeFile(team.html, htmlString, (err)=>{console.error(err)})
     }
-    
-    
 init()
