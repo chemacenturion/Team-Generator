@@ -1,10 +1,7 @@
+const { TestWatcher } = require("jest");
 const Manager = require("../lib/Manager")
 // test failed again........
-// test("Will generate office number with constructor function", () => {
-//     const testValue = 428;
-//     const e = new Manager("Jose", 4, "centurion.philadelphia@gmail.com", testValue);
-//     expect(e.officeNumber).toBe(testValue);
-// });
+
 // Forgot , after sample email
 test("getRole() should return 'Manager'", () => {
     const testValue = "Manager";
