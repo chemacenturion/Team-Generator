@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628727971541" clover="3.2.0">
-  <project timestamp="1628727971542" name="All files">
-    <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="11" coveredelements="11" complexity="0" loc="7" ncloc="7" packages="1" files="1" classes="1"/>
+<coverage generated="1628729539098" clover="3.2.0">
+  <project timestamp="1628729539098" name="All files">
+    <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7" elements="20" coveredelements="20" complexity="0" loc="13" ncloc="13" packages="1" files="2" classes="2"/>
     <file name="Employee.js" path="C:\Users\Jose Maria\homework\Team-Generator\lib\Employee.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <line num="25" count="7" type="stmt"/>
-      <line num="26" count="7" type="stmt"/>
-      <line num="27" count="7" type="stmt"/>
+      <line num="25" count="10" type="stmt"/>
+      <line num="26" count="10" type="stmt"/>
+      <line num="27" count="10" type="stmt"/>
       <line num="31" count="1" type="stmt"/>
       <line num="34" count="1" type="stmt"/>
       <line num="37" count="1" type="stmt"/>
-      <line num="42" count="1" type="stmt"/>
+      <line num="42" count="2" type="stmt"/>
+    </file>
+    <file name="Engineer.js" path="C:\Users\Jose Maria\homework\Team-Generator\lib\Engineer.js">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="15" count="3" type="stmt"/>
+      <line num="17" count="3" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>
