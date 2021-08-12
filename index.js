@@ -1,6 +1,6 @@
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const TeamManager = require("./lib/Manager");
+const Manager = require("./lib/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -17,15 +17,15 @@ inquirer
             name:"addEmployee",
             message:"What type of employee would you like to add?",
             choices: [
-                "Team Manager",
+                "Manager",
                 "Engineer",
                 "Intern",
                 "I'm finished adding employees."
             ]
         }
     ]).then((response) => {
-        if(response.addEmployee === "Team Manager") {
-            addTeamManager()
+        if(response.addEmployee === "Manager") {
+            addManager()
         }else if(response.addEmployee === "Engineer") {
             addEngineer()
         }else if(response.addEmployee === "Intern"){
@@ -41,7 +41,7 @@ inquirer
 
 }
 
-    function addTeamManager() {
+    function addManager() {
         inquirer
             .prompt([
                 // put questions here ID, EMAIL, OFFICE SPACE NUMBER
@@ -67,7 +67,7 @@ inquirer
                 }
             ]).then((answers) => {
                 // catch answers located in lib js and create a constant
-                const manager = new TeamManager(answers.name, answers.id, answers.email, answers.officeNumber)
+                const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
                 managerArray.push(manager)
                 init()
             })
@@ -136,5 +136,86 @@ inquirer
                 init()
             })
     }
+
+    function generateHtml() {
+        `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Team Generator</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+            <link rel="stylesheet" href="../dist/styles.css">
+        </head>
+        <body>
+            <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4">Team Generator</h1>
+              </div>
+            </div>
+            <!-- need to media queries align center for responsiveness between desktop and mobile -->
+            <div class="container">
+              <div class="row">
+                  <!-- Adding bootstrap card templates in -->
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="../dist/images/manager.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h1 class="card-title">Manager</h1>
+                        <h4 class="card-text">${manager.name}</h4>
+                      </div>
+                      <div class="card-body contents">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${manager.id}</li>
+                          <li class="list-group-item">Email: ${manager.email}</a></li>
+                          <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="../dist/images/engineer.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h1 class="card-title">Engineer</h1>
+                        <h4 class="card-text">${engineer.name}</h4>
+                      </div>
+                      <div class="card-body contents">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${engineer.id}</li>
+                          <li class="list-group-item">Email: ${engineer.email}</li>
+                          <li class="list-group-item">GitHub: ${engineer.github}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                      <img src="../dist/images/intern.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h1 class="card-title">Intern</h1>
+                        <h4 class="card-text">${intern.name}</h4>
+                      </div>
+                      <div class="card-body contents">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">ID: ${intern.id}3</li>
+                          <li class="list-group-item">Email: ${intern.email}</li>
+                          <li class="list-group-item">School: ${intern.school}</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </body>
+        <script src="../index.js"></script>
+        </html>`
+
+        // fs.writeFile('team.html', htmlArr.join(""), function (err) {
+        //     console.error(err);
+        // })
+    }
+    
     
 init()
