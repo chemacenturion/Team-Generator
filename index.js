@@ -24,7 +24,6 @@ inquirer
             ]
         }
     ]).then((response) => {
-            console.log(response)
         if(response.addEmployee === "Team Manager") {
             addTeamManager()
         }else if(response.addEmployee === "Engineer") {
@@ -32,7 +31,9 @@ inquirer
         }else if(response.addEmployee === "Intern"){
             addIntern()
         }else{
-            console.log("I'm finished adding employees")
+            console.log(managerArray)
+            console.log(engineerArray)
+            console.log(internArray)
         }
     })
 // ask tutor how to write multiple prompts with then statements in code
@@ -47,22 +48,22 @@ inquirer
                 {
                     type:'input',
                     name:'name',
-                    message:'Please enter your first and last name.',
+                    message:'Please enter their first and last name.',
                 },
                 {
                     type:'input',
                     name:'id',
-                    message:'Please enter your employee ID.',
+                    message:'Please enter their employee ID.',
                 },
                 {
                     type:'input',
                     name:'email',
-                    message:'What is your email address?',
+                    message:'What is their email address?',
                 },
                 {
                     type:'input',
-                    name:'office',
-                    message:'Please enter office space number.'
+                    name:'officeNumber',
+                    message:'Please enter their office space number.'
                 }
             ]).then((answers) => {
                 // catch answers located in lib js and create a constant
@@ -79,22 +80,22 @@ inquirer
                 {
                     type:'input',
                     name:'name',
-                    message:'Please enter your first and last name.',
+                    message:'Please enter their first and last name.',
                 },
                 {
                     type:'input',
                     name:'id',
-                    message:'Please enter your employee ID',
+                    message:'Please enter their employee ID',
                 },
                 {
                     type:'input',
                     name:'email',
-                    message:'What is your email address?',
+                    message:'What is their email address?',
                 },
                 {
                     type:'input',
                     name:'username',
-                    message:'Please enter your GitHub username.'
+                    message:'Please enter their GitHub username.'
                 }
             ]).then((answers) => {
                 // catch answers located in lib js and create a constant
@@ -111,22 +112,22 @@ inquirer
                 {
                     type:'input',
                     name:'name',
-                    message:'Please enter your first and last name.',
+                    message:'Please enter their first and last name.',
                 },
                 {
                     type:'input',
                     name:'id',
-                    message:'Please enter your employee ID.',
+                    message:'Please enter their employee ID.',
                 },
                 {
                     type:'input',
                     name:'email',
-                    message:'What is your email address?',
+                    message:'What is their email address?',
                 },
                 {
                     type:'input',
                     name:'school',
-                    message:'Please enter your school.'
+                    message:'Please enter their school.'
                 }
             ]).then((answers) => {
                 // catch answers located in lib js and create a constant
