@@ -34,7 +34,7 @@ inquirer
             // console.log(managerArray)
             // console.log(engineerArray)
             // console.log(internArray)
-            finishedProject();
+            teamReady();
         }
     })
 // ask tutor how to write multiple prompts with then statements in code
@@ -95,7 +95,7 @@ inquirer
                 },
                 {
                     type:'input',
-                    name:'username',
+                    name:'github',
                     message:'Please enter their GitHub username.'
                 }
             ]).then((answers) => {
@@ -148,7 +148,8 @@ inquirer
        
     //      fs.writeFile(team.html, htmlString, (err)=>{console.error(err)})
     //    }
-    function generateHtml(managerArray, engineerArray, internArray) {
+// google and learn about shadowing global variable issue - Jon BCs
+    function generateHtml() {
         let managerCard = ``;
         let engineerCard = ``;
         let internCard = ``;
@@ -162,7 +163,7 @@ inquirer
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Team Generator</title>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-            <link rel="stylesheet" href="../dist/styles.css">
+            <link rel="stylesheet" href="./dist/styles.css">
         </head>
         <body>
             <div class="jumbotron jumbotron-fluid">
@@ -174,21 +175,20 @@ inquirer
             <div class="container">
               <div class="row">
         `
-        console.log(managerArray)
-        for (let i = 1; i < managerArray.length; i++) {
+        for (let i = 0; i < managerArray.length; i++) {
             managerCard += `
             <div class="col-sm">
             <div class="card" style="width: 18rem;">
-              <img src="../dist/images/manager.jpg" class="card-img-top" alt="...">
+              <img src="./dist/images/manager.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h1 class="card-title">Manager</h1>
-                <h4 class="card-text">${manager.name}</h4>
+                <h4 class="card-text">${managerArray[i].name}</h4>
               </div>
               <div class="card-body contents">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: ${manager.id}</li>
-                  <li class="list-group-item">Email: ${manager.email}</a></li>
-                  <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
+                  <li class="list-group-item">ID: ${managerArray[i].id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${managerArray[i].email}">${managerArray[i].email}</a></li>
+                  <li class="list-group-item">Office Number: ${managerArray[i].officeNumber}</li>
                 </ul>
               </div>
             </div>
@@ -196,20 +196,20 @@ inquirer
         `
         }
 
-        for (let i = 1; i < engineerArray.length; i++) {
+        for (let i = 0; i < engineerArray.length; i++) {
             engineerCard += `
             <div class="col-sm">
             <div class="card" style="width: 18rem;">
-              <img src="../dist/images/engineer.jpg" class="card-img-top" alt="...">
+              <img src="./dist/images/engineer.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h1 class="card-title">Engineer</h1>
-                <h4 class="card-text">${engineer.name}</h4>
+                <h4 class="card-text">${engineerArray[i].name}</h4>
               </div>
               <div class="card-body contents">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: ${engineer.id}</li>
-                  <li class="list-group-item">Email: ${engineer.email}</li>
-                  <li class="list-group-item">GitHub: ${engineer.github}</li>
+                  <li class="list-group-item">ID: ${engineerArray[i].id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${engineerArray[i].email}">${engineerArray[i].email}</a></li>
+                  <li class="list-group-item">GitHub: <a href="https://github.com/${engineerArray[i].github}">${engineerArray[i].github}</a></li>
                 </ul>
               </div>
             </div>
@@ -217,20 +217,20 @@ inquirer
         `
         }
 
-        for (let i = 1; i < internArray.length; i++) {
+        for (let i = 0; i < internArray.length; i++) {
             internCard += `
             <div class="col-sm">
             <div class="card" style="width: 18rem;">
-              <img src="../dist/images/intern.jpg" class="card-img-top" alt="...">
+              <img src="./dist/images/intern.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h1 class="card-title">Intern</h1>
-                <h4 class="card-text">${intern.name}</h4>
+                <h4 class="card-text">${internArray[i].name}</h4>
               </div>
               <div class="card-body contents">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">ID: ${intern.id}</li>
-                  <li class="list-group-item">Email: ${intern.email}</li>
-                  <li class="list-group-item">School: ${intern.school}</li>
+                  <li class="list-group-item">ID: ${internArray[i].id}</li>
+                  <li class="list-group-item">Email: <a href="mailto:${internArray[i].email}">${internArray[i].email}</a></li>
+                  <li class="list-group-item">School: ${internArray[i].school}</li>
                 </ul>
               </div>
             </div>
@@ -248,7 +248,7 @@ inquirer
         return boilerPlateCode + managerCard + engineerCard + internCard + closingTags
     }
 
-    function finishedProject() {
+    function teamReady() {
         let data = generateHtml()
         fs.writeFileSync(`team.html`, data, "utf-8", (err)=>{console.error(err)})
     }
