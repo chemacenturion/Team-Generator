@@ -209,7 +209,7 @@ inquirer
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">ID: ${engineerArray[i].id}</li>
                   <li class="list-group-item">Email: <a href="mailto:${engineerArray[i].email}">${engineerArray[i].email}</a></li>
-                  <li class="list-group-item">GitHub: <a href="https://github.com/${engineerArray[i].github}">${engineerArray[i].github}</a></li>
+                  <li class="list-group-item">GitHub: <a href="https://github.com/${engineerArray[i].github}" target="_blank">${engineerArray[i].github}</a></li>
                 </ul>
               </div>
             </div>
