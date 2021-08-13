@@ -4,9 +4,9 @@ const Manager = require("./lib/Manager");
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const managerArray = [];
-const internArray = [];
-const engineerArray = [];
+let managerArray = [];
+let internArray = [];
+let engineerArray = [];
 
 function init() {
 
@@ -34,7 +34,7 @@ inquirer
             // console.log(managerArray)
             // console.log(engineerArray)
             // console.log(internArray)
-            finishedProject(managerArray, engineerArray, internArray);
+            finishedProject();
         }
     })
 // ask tutor how to write multiple prompts with then statements in code
@@ -174,6 +174,7 @@ inquirer
             <div class="container">
               <div class="row">
         `
+        console.log(managerArray)
         for (let i = 1; i < managerArray.length; i++) {
             managerCard += `
             <div class="col-sm">
